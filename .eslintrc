@@ -1,8 +1,8 @@
 {
-  "extends": ["buildery"],
+  "extends": ["buildery-typescript"],
   "overrides": [
     {
-      "files": ["**/*.test.js", "**/*.test.jsx"],
+      "files": ["**/*.test.ts", "**/*.test.tsx"],
       "env": {
         "mocha": true
       },

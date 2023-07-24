@@ -6,7 +6,7 @@
   "readmeFilename": "README.md",
   "repository": "buildery-it/react-polyglot",
   "bugs": "https://github.com/buildery-it/react-polyglot/issues",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "keywords": [
     "react",
     "polyglot",
@@ -35,15 +35,17 @@
     "@babel/plugin-transform-runtime": "^7.22.9",
     "@babel/preset-env": "^7.22.9",
     "@babel/preset-react": "^7.22.5",
+    "@babel/preset-typescript": "^7.22.5",
     "@babel/register": "^7.22.5",
     "@buildery-it/browserslist-config": "^1.0.0",
     "@ladle/react": "^2.16.1",
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-commonjs": "^25.0.3",
     "@rollup/plugin-node-resolve": "^15.1.0",
+    "@rollup/plugin-typescript": "^11.1.2",
     "chai": "^4.3.7",
     "eslint": "^8.45.0",
-    "eslint-config-buildery": "^1.1.0",
+    "eslint-config-buildery-typescript": "^1.0.0",
     "mocha": "^10.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -56,6 +58,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.22.6",
+    "@types/node-polyglot": "^2.4.2",
     "node-polyglot": "^2.5.0"
   }
 }

@@ -26,11 +26,6 @@ const WithInternationalHook = () => {
         <dd>
           {t('missing.value')}
         </dd>
-
-        <dt>Empty call:</dt>
-        <dd>
-          {t()}
-        </dd>
       </dl>
     </div>
   );
@@ -41,7 +36,12 @@ export const InternationalHook = () => <WithInternationalHook />;
 const WithLocaleHook = () => {
   const locale = useLocale();
 
-  return <pre>locale: {JSON.stringify(locale, null, 2)}</pre>;
+  return (
+    <pre>
+      locale:
+      {JSON.stringify(locale, null, 2)}
+    </pre>
+  );
 };
 
 export const LocaleHook = () => <WithLocaleHook />;
@@ -70,11 +70,6 @@ const WithTHook = () => {
         <dt>Missing value:</dt>
         <dd>
           {t('missing.value')}
-        </dd>
-
-        <dt>Empty call:</dt>
-        <dd>
-          {t()}
         </dd>
       </dl>
     </div>

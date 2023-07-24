@@ -25,11 +25,6 @@ export const t = () => (
       <dd>
         <T id="missing.value" />
       </dd>
-
-      <dt>Empty call:</dt>
-      <dd>
-        <T />
-      </dd>
     </dl>
   </div>
 );

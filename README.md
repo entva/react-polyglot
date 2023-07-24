@@ -68,19 +68,3 @@ const MyComponent = ({ t, locale }) => {
 };
 
 ```
-
-### withLocale
-
-`withLocale` is a HOC you can use to wrap your components to get access to the internationalization context. It's considered legacy and will be removed in the future versions. It is preferrable to use hooks or the `T` component.
-
-```javascript
-import { withLocale } from '@buildery-it/react-polyglot';
-
-const MyComponent = ({ t, locale }) => (
-  // ...
-);
-
-export default withLocale(MyComponent);
-```
-
-
