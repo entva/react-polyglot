@@ -1,15 +1,14 @@
 import { ReactNode } from 'react';
 import { useT } from '../hooks';
-import { smartT } from '../utils';
 
 type Props = {
-  id: string,
+  text: string,
   [key: string]: unknown,
 };
 
-const Component = ({ id, ...options }: Props) => {
+const Component = ({ text, ...options }: Props) => {
   const t = useT();
-  const result = smartT(t, id, options as Record<string, ReactNode>);
+  const result = t(text, options as Record<string, ReactNode>);
   return (result || null);
 };
 

@@ -3,20 +3,22 @@ import { useInternational, useLocale, useT } from '../hooks';
 export default { title: 'International' };
 
 const WithInternationalHook = () => {
-  const { t } = useInternational();
+  const { t, locale } = useInternational();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const dictionary = locale.dictionary as Record<string, any>;
 
   return (
     <div>
       <dl>
         <dt>Simple string:</dt>
-        <dd>{t('text')}</dd>
+        <dd>{t(dictionary.text)}</dd>
 
         <dt>Nested string:</dt>
-        <dd>{t('nested.text')}</dd>
+        <dd>{t(dictionary.nested.text)}</dd>
 
         <dt>Substitutions:</dt>
         <dd>
-          {t('substitution', {
+          {t(dictionary.substitution, {
             variable_1: 'bubblegum',
             variable_2: 'ass',
           })}
@@ -24,7 +26,7 @@ const WithInternationalHook = () => {
 
         <dt>Missing value:</dt>
         <dd>
-          {t('missing.value')}
+          {t(dictionary.missing)}
         </dd>
       </dl>
     </div>
@@ -49,19 +51,22 @@ export const LocaleHook = () => <WithLocaleHook />;
 
 const WithTHook = () => {
   const t = useT();
+  const locale = useLocale();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const dictionary = locale.dictionary as Record<string, any>;
 
   return (
     <div>
       <dl>
         <dt>Simple string:</dt>
-        <dd>{t('text')}</dd>
+        <dd>{t(dictionary.text)}</dd>
 
         <dt>Nested string:</dt>
-        <dd>{t('nested.text')}</dd>
+        <dd>{t(dictionary.nested.text)}</dd>
 
         <dt>Substitutions:</dt>
         <dd>
-          {t('substitution', {
+          {t(dictionary.substitution, {
             variable_1: 'bubblegum',
             variable_2: 'ass',
           })}
@@ -69,7 +74,7 @@ const WithTHook = () => {
 
         <dt>Missing value:</dt>
         <dd>
-          {t('missing.value')}
+          {t(dictionary.missing)}
         </dd>
       </dl>
     </div>

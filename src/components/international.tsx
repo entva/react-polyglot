@@ -1,15 +1,7 @@
 import { useMemo, type ReactNode } from 'react';
-import Polyglot from 'node-polyglot';
+import { getT } from '../utils';
 import { Provider } from '../context';
-import type { TFunction, LocaleValue } from '../types';
-
-// Left like this for uglify to be able to clean up
-const warn = (...args: unknown[]) => console.error(...args);
-
-const createInstance = ({ type: locale, dictionary: phrases }: LocaleValue): TFunction => {
-  const polyglot = new Polyglot({ warn, locale, phrases });
-  return polyglot.t.bind(polyglot);
-};
+import type { LocaleValue } from '../types';
 
 type Props = {
   locale: LocaleValue,
@@ -18,7 +10,7 @@ type Props = {
 
 const International = ({ locale, children }: Props) => {
   const context = useMemo(() => {
-    const t = createInstance(locale || {});
+    const t = getT(locale.type);
     return { t, locale };
   }, [locale]);
 

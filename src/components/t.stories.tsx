@@ -1,30 +1,36 @@
 /* eslint no-alert: "off" */
 import T from './t';
+import { useLocale } from '../hooks';
 
 export default { title: 'T' };
 
-export const t = () => (
-  <div>
-    <dl>
-      <dt>Simple string:</dt>
-      <dd><T id="text" /></dd>
+export const WithTComponent = () => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const dictionary = useLocale().dictionary as Record<string, any>;
 
-      <dt>Nested string:</dt>
-      <dd><T id="nested.text" /></dd>
+  return (
+    <div>
+      <dl>
+        <dt>Simple string:</dt>
+        <dd><T text={dictionary.text} /></dd>
 
-      <dt>Substitutions:</dt>
-      <dd>
-        <T
-          id="substitution"
-          variable_1={<strong onClick={() => alert('🍬')}>bubblegum</strong>}
-          variable_2={<em onClick={() => alert('🍑')}>ass</em>}
-        />
-      </dd>
+        <dt>Nested string:</dt>
+        <dd><T text={dictionary.nested.text} /></dd>
 
-      <dt>Missing value:</dt>
-      <dd>
-        <T id="missing.value" />
-      </dd>
-    </dl>
-  </div>
-);
+        <dt>Substitutions:</dt>
+        <dd>
+          <T
+            text={dictionary.substitution}
+            variable_1={<strong onClick={() => alert('🍬')}>bubblegum</strong>}
+            variable_2={<em onClick={() => alert('🍑')}>ass</em>}
+          />
+        </dd>
+
+        <dt>Missing value:</dt>
+        <dd>
+          <T text={dictionary.missing} />
+        </dd>
+      </dl>
+    </div>
+  );
+};
